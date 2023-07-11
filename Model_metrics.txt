@@ -1,0 +1,55 @@
+Capstone two model metrics
+
+Models applied : Random Forest Regressor, XGBoost and LightGBM with GridSearch cross validation. 
+
+RF:
+
+parameters = {
+    "max_depth": [3, 4, 6, 5],
+    "n_estimators": [100, 300, 500, 700],
+}
+
+MAE: 3.589146477548228
+MSE: 24.461297935036185
+MAPE: 1456071623163519.5
+
+RMSE:  4.946
+
+XGBoost:
+
+parameters = {
+    "max_depth": [3, 4, 6, 5],
+    "n_estimators": [100, 300, 500, 700],
+}
+
+MAE: 4.358068602700388
+MSE: 31.024406097026578
+MAPE: 1194353364041729.5
+
+RMSE:  5.57
+
+Light GBM:
+
+parameters = {
+    "max_depth": [3, 4, 6, 5],
+    "learning_rate": [0.01, 0.05, 0.1, 0.2],
+    "n_estimators": [100, 300, 500, 700]
+}
+
+MAE: 3.6980085572538846
+MSE: 25.435305814782282
+MAPE: 1872607429405612.2
+
+RMSE:  5.043
+
+While we did find MAE, MSE, MAPE and the RMSE, we can consider RMSE as both are similar but RMSE is in the same units as our target variable. RMSE is more useful when large errors are particularly undesirable.
+
+RMSE has the benefit of penalizing large errors more so can be more appropriate in some cases, for example, if being off by 10 is more than twice as bad as being off by 5. But if being off by 10 is just twice as bad as being off by 5, then MAE is more appropriate.
+
+Since we are predicting accidents, a significantly large error could be more disastrous. Imagine a day when the actual accidents are to be 50 but the model predicts just 30. A large error of this kind could result in the county being unprepared to handle emergencies. Since RMSE would penalize such large errors, in this case, we could opt for a model with lower RMSE.
+
+In either case, the Ramdom forest model has a lower MAE and lower RMSE and the next model which comes close is the LightGBM. Clearly, we could use the Random Forest model to predict accidents.
+
+
+
+The Random Forest model scores an impressive RMSE of 4.9 and MAE of 3.5. 
