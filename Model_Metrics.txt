@@ -1,0 +1,37 @@
+
+Best Model Decision Tree with accuracy score and best params
+
+(0.7843515387614284,
+ {'criterion': 'gini',
+  'max_depth': 5,
+  'min_samples_leaf': 1,
+  'min_samples_split': 3})
+
+Classification report:
+  				precision    recall  f1-score   support
+
+        Closed with explanation       0.86      0.68      0.76     82647
+    Closed with monetary relief       0.00      0.00      0.00      2402
+Closed with non-monetary relief       0.65      0.89      0.75     43990
+                    In progress       0.87      0.93      0.90     37434
+              Untimely response       0.62      0.30      0.40       186
+
+                       accuracy                           0.78    166659
+                      macro avg       0.60      0.56      0.56    166659
+                   weighted avg       0.79      0.78      0.78    166659
+
+[[56450     0 21195  4968    34]
+ [ 2347     0    46     9     0]
+ [ 4344     0 39329   317     0]
+ [ 2479     0     0 34955     0]
+ [  123     0     0     8    55]]
+
+Scores for other models:
+
+		Accuracy	Error-I	Error-II	Total Error
+Model				
+Logis Reg	0.783606	2291	163		2454
+Dec Tree-I	0.779500	2085	1005		3090
+Dec Tree-II	0.784700	2393	0		2393
+RF-I		0.782420	2106	541		2647
+RF-II		0.774700	2394	0		2394
